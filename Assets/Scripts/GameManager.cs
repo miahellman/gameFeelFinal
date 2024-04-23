@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public ModifyUI modifyUI;
     public float raceTime;
 
+    private float gameTimer = 0f;
+
     //singleton 
     public static GameManager instance;
 
@@ -49,6 +51,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Main");
+
+        //start game timer
+        gameTimer += Time.deltaTime;
+
     }
 
     //game over function
@@ -77,14 +83,16 @@ public class GameManager : MonoBehaviour
     //check fastest time for scoreboard (this is broken)
     private void CheckFastestTime()
     {
-        raceTime = modifyUI.timeElapsed;
+       // raceTime = modifyUI.timeElapsed;
+        raceTime = gameTimer;
 
-        if (PlayerPrefs.GetFloat("FastestTime",0) == 0)
+        if (PlayerPrefs.GetFloat("LongestTime",0) == 0)
         {
-            PlayerPrefs.SetFloat("FastestTime", raceTime);
-        } else if (raceTime < PlayerPrefs.GetFloat("FastestTime", 0))
+            PlayerPrefs.SetFloat("LongestTime", raceTime);
+        } 
+        else if (raceTime >= PlayerPrefs.GetFloat("LongestTime", 0))
         {
-            PlayerPrefs.SetFloat("FastestTime", raceTime);
+            PlayerPrefs.SetFloat("LongestTime", raceTime);
         }
     }
 }

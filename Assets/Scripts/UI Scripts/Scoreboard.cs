@@ -24,7 +24,7 @@ public class Scoreboard : MonoBehaviour
     {
         //update high score and your score text
         //help why is this not working
-        highScoreText.text = $"fastest time: {PlayerPrefs.GetFloat("FastestTime", 0)} s";
+        highScoreText.text = $"longest time: {PlayerPrefs.GetFloat("LongestTime", 0)} s";
         yourScoreText.text = $"your time: {gameManager.raceTime} s";
 
     }
