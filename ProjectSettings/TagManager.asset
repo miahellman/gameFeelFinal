@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Barrier
   - StartLine
+  - Trigger
+  - Road
+  - Destroy
   layers:
   - Default
   - TransparentFX
