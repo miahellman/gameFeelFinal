@@ -338,7 +338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350491287}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1caff7f4b5b4a424f8b9094b9990cdcb, type: 3}
   m_Name: 
@@ -1535,7 +1535,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 766022069093486502, guid: 9606e0032c00b3f468e095aeafd2fade, type: 3}
       propertyPath: m_Intensity
-      value: 1.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1313679252736962587, guid: 9606e0032c00b3f468e095aeafd2fade, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
@@ -1567,7 +1567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3506508874355756488, guid: 9606e0032c00b3f468e095aeafd2fade, type: 3}
       propertyPath: m_Intensity
-      value: 1.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3558839027963133798, guid: 9606e0032c00b3f468e095aeafd2fade, type: 3}
       propertyPath: m_Name
