@@ -1752,6 +1752,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6894921359915851067, guid: 16bc898b556293646a151e2feb8c5145, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894921359915851067, guid: 16bc898b556293646a151e2feb8c5145, type: 3}
+      propertyPath: m_TagString
+      value: Barrier
+      objectReference: {fileID: 0}
     - target: {fileID: 7071181526701346850, guid: 16bc898b556293646a151e2feb8c5145, type: 3}
       propertyPath: m_Name
       value: Track Section
