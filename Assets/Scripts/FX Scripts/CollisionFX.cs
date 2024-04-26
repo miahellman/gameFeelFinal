@@ -7,19 +7,22 @@ public class CollisionFX : MonoBehaviour
     public GameManager gameManager;
 
     [SerializeField] GameObject hitEffectPrefab;
-    [SerializeField] GameObject startLine;
-    [SerializeField] GameObject finishLine;
+    //[SerializeField] GameObject startLine;
+   // [SerializeField] GameObject finishLine;
 
     [HideInInspector] public float lapTimer = 0f;
     [HideInInspector] public int totalLaps = 0;
     public int maxLaps;
+
+    public int collisionCount = 0;
+    public int maxCollisionCount = 0;
 
     private void Update()
     {
         //if car has completed less than max laps, hide finish line
         if (totalLaps < maxLaps)
         {
-            finishLine.SetActive(false);
+       //     finishLine.SetActive(false);
         }
         else
         {
@@ -29,13 +32,18 @@ public class CollisionFX : MonoBehaviour
         //if car has completed max laps, show finish line
         if (totalLaps == maxLaps)
         {
-            finishLine.SetActive(true);
+         //   finishLine.SetActive(true);
         }
 
         //if car has completed max laps, game over
         if (totalLaps > maxLaps)
         {
             totalLaps = maxLaps;
+            gameManager.GameOver();
+        }
+
+        if (collisionCount > maxCollisionCount)
+        {
             gameManager.GameOver();
         }
     }
@@ -45,6 +53,8 @@ public class CollisionFX : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Barrier"))
         {
+            collisionCount++;
+            Debug.Log("Hit Barrier");
             Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
         }
     }

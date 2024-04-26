@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     //start game function
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("infinite demo");
 
         //start game timer
         gameTimer += Time.deltaTime;

@@ -10,8 +10,8 @@ public class ModifyUI : MonoBehaviour
     public CollisionFX collisionFX;
 
     [SerializeField] TextMeshProUGUI mphText;
-    [SerializeField] TextMeshProUGUI timeText;
-    [SerializeField] TextMeshProUGUI lapsText;
+   // [SerializeField] TextMeshProUGUI timeText;
+   // [SerializeField] TextMeshProUGUI lapsText;
     [SerializeField] TextMeshProUGUI pauseText;
 
     public float timeElapsed = 0f;
@@ -43,9 +43,9 @@ public class ModifyUI : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
 
-        timeText.text = gameManager.gamePaused ? "" : "TOTAL TIME: " + timeElapsed.ToString("F0") + " S";
+      //  timeText.text = gameManager.gamePaused ? "" : "TOTAL TIME: " + timeElapsed.ToString("F0") + " S";
 
-        lapsText.text = gameManager.gamePaused ? "" : "LAPS: " + collisionFX.totalLaps.ToString("F0") + "/" + collisionFX.maxLaps.ToString();
+      //  lapsText.text = gameManager.gamePaused ? "" : "LAPS: " + collisionFX.totalLaps.ToString("F0") + "/" + collisionFX.maxLaps.ToString();
         
     }
 }
