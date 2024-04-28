@@ -10,6 +10,7 @@ public class ModifyUI : MonoBehaviour
     public CollisionFX collisionFX;
 
     [SerializeField] TextMeshProUGUI mphText;
+    [SerializeField] TextMeshProUGUI collisionText;
    // [SerializeField] TextMeshProUGUI timeText;
    // [SerializeField] TextMeshProUGUI lapsText;
     [SerializeField] TextMeshProUGUI pauseText;
@@ -42,6 +43,11 @@ public class ModifyUI : MonoBehaviour
         mphText.text = gameManager.gamePaused ? "" : speed.ToString("F0") + " MPH";
 
         timeElapsed += Time.deltaTime;
+
+        int healthNum = collisionFX.maxCollisionCount - collisionFX.collisionCount; 
+
+        //update text to show number of collisions
+        collisionText.text = gameManager.gamePaused ? "" : "lives: " + healthNum.ToString();
 
       //  timeText.text = gameManager.gamePaused ? "" : "TOTAL TIME: " + timeElapsed.ToString("F0") + " S";
 

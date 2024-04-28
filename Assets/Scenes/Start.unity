@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TITLE TBD
+  m_text: '*infinite racer*'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.35
+  m_fontSize: 38.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1454,12 +1454,12 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 9b1c35259ab732948b701531c5ae4f07, type: 2}
   - {fileID: -3846018093981099296, guid: 4659d439a0833744f87828d1aa158f6b, type: 3}
-  - {fileID: 1886820026795636259, guid: 4659d439a0833744f87828d1aa158f6b, type: 3}
-  - {fileID: 9185737683893222716, guid: 4659d439a0833744f87828d1aa158f6b, type: 3}
+  - {fileID: 2100000, guid: 08c91461291524831ba3529ebb3858e6, type: 2}
+  - {fileID: 2100000, guid: 08c91461291524831ba3529ebb3858e6, type: 2}
   - {fileID: 2100000, guid: df92f1750bf76404b853cbe05136ba49, type: 2}
   - {fileID: 2100000, guid: b9552c04d815beb4786c8d3c15a958ec, type: 2}
-  - {fileID: 2100000, guid: b384f563d1ec4ae4fb5f05910086c01c, type: 2}
-  - {fileID: 2100000, guid: b384f563d1ec4ae4fb5f05910086c01c, type: 2}
+  - {fileID: 2100000, guid: 08c91461291524831ba3529ebb3858e6, type: 2}
+  - {fileID: 2100000, guid: 08c91461291524831ba3529ebb3858e6, type: 2}
   - {fileID: 2100000, guid: 9f4936ef34127da40af7545bcd2cc9bf, type: 2}
   - {fileID: 2100000, guid: f10dc4456989d5245b033b4f78dd38bf, type: 2}
   - {fileID: -8274133419916619345, guid: 4659d439a0833744f87828d1aa158f6b, type: 3}
@@ -2132,10 +2132,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 507429065956268059, guid: e04511faf0955c84ba06f2785f0edc0c, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2579704214723351730, guid: e04511faf0955c84ba06f2785f0edc0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.9696279
@@ -2338,7 +2334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 4659d439a0833744f87828d1aa158f6b, type: 3}
+  - {fileID: 2100000, guid: 08c91461291524831ba3529ebb3858e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2446,7 +2442,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: 4659d439a0833744f87828d1aa158f6b, type: 3}
+  - {fileID: 2100000, guid: 08c91461291524831ba3529ebb3858e6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

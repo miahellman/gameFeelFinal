@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool isGameOver = false;
 
+    //singleton pattern
     void Awake()
     {
         if (instance == null)
@@ -75,6 +76,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
+    //quit game function
     public void QuitGame()
     {
         Application.Quit();

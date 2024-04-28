@@ -9,6 +9,7 @@ TagManager:
   - Trigger
   - Road
   - Destroy
+  - Obstacle
   layers:
   - Default
   - TransparentFX

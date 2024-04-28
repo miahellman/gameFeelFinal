@@ -15,10 +15,28 @@ public class CollisionFX : MonoBehaviour
     public int maxLaps;
 
     public int collisionCount = 0;
-    public int maxCollisionCount = 0;
+    public int maxCollisionCount = 3;
 
+    //invincible period after collision timer variables
+    private float invincibleTimer = 0f;
+    private float invinciblePeriod = 3f;
+
+    private GameObject playerObject;
+
+    private void Start()
+    {
+        //find player gameobject
+        playerObject = GameObject.Find("Player");
+    }
     private void Update()
     {
+        //if invincible timer is greater than 0, count down
+        if (invincibleTimer >= 0)
+        {
+            invincibleTimer -= Time.deltaTime;
+        }
+
+
         //if car has completed less than max laps, hide finish line
         if (totalLaps < maxLaps)
         {
@@ -42,20 +60,51 @@ public class CollisionFX : MonoBehaviour
             gameManager.GameOver();
         }
 
-        if (collisionCount > maxCollisionCount)
+        //if car has collided with max number of obstacles, game over
+        if (collisionCount >= maxCollisionCount)
         {
-            gameManager.GameOver();
+            Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(GameOverTimer());
+            Destroy(playerObject);
+            //start game over timer
         }
     }
 
     //if car hits barrier, create hit effect
     private void OnCollisionEnter(Collision collision)
     {
+
+        Debug.Log("Collider name: " + collision.gameObject.name + " collider tag: " + collision.gameObject.tag);
+
+
+        //for barriers don't destroy object, just create hit effect and add to collision count -- for obstacles, destroy object
         if (collision.gameObject.CompareTag("Barrier"))
         {
-            collisionCount++;
             Debug.Log("Hit Barrier");
             Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
+            //add to collision count
+            //start collision timer for invincible period
+            if (invincibleTimer <= 0)
+            {
+                invincibleTimer = invinciblePeriod;
+                collisionCount += 1;
+            }
+        }
+        //for obstacles, destroy object and create hit effect
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Hit Obstacle");
+            Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
+            Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
+            //add to collision count
+            //start collision timer for invincible period
+            if (invincibleTimer <= 0)
+            {
+                invincibleTimer = invinciblePeriod;
+                collisionCount += 1;
+            }
+            //delete object collided with
+            Destroy(collision.gameObject);
         }
     }
 
@@ -68,6 +117,13 @@ public class CollisionFX : MonoBehaviour
             totalLaps += 1;
         }
 
+    }
+
+    //coroutine to count 2 seconds before game over state = true
+    private IEnumerator GameOverTimer()
+    {
+        yield return new WaitForSeconds(1.5f);
+        gameManager.GameOver();
     }
 
 }

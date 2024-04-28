@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    public GameManager gameManager;
     public Rigidbody sphereRB;
     public Rigidbody carRB;
     [SerializeField] BoxCollider carBC;
@@ -29,13 +31,30 @@ public class CarController : MonoBehaviour
     private float normalDrag;
     private bool isBraking;
 
+    //not grounded timer
+    private float notGroundedTimer = 0f;
+    private float notGroundedTimerMax = 3f;
+
+    private GameObject carVisual;
+    private GameObject trails;
+
 
     void Start()
     {
+        //find game manager 
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        //find porsche 930 turbo gameobject
+        carVisual = GameObject.Find("Porsche930Turbo");
+
+        //find trails
+        trails = GameObject.Find("Trails");
+
         // Detach Sphere from car
         sphereRB.transform.parent = null;
         carRB.transform.parent = null;
         
+        // Set Drag
         normalDrag = sphereRB.drag;
     }
 
@@ -91,5 +110,27 @@ public class CarController : MonoBehaviour
         {
             brakeBox.SetActive(true);
         }
+
+        //if car is not grounded, add to timer
+        if (!isCarGrounded)
+        {notGroundedTimer += Time.deltaTime;}
+        else{notGroundedTimer = 0;}
+
+        //if car is not grounded for a certain amount of time, game over
+        if (notGroundedTimer > notGroundedTimerMax)
+        {
+            Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(CarFallenGameOverTimer());
+            //destroy car and trails
+            Destroy(trails);
+            Destroy(carVisual);
+        }
+    }
+
+    //end game if car isnt grounded (this just adds a delay after car is destroyed)
+    IEnumerator CarFallenGameOverTimer()
+    {
+        yield return new WaitForSeconds(1.5f);
+        gameManager.GameOver();
     }
 }
