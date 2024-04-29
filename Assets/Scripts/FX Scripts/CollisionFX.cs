@@ -15,11 +15,15 @@ public class CollisionFX : MonoBehaviour
     public int maxLaps;
 
     public int collisionCount = 0;
-    public int maxCollisionCount = 3;
+    public int maxCollisionCount = 100000;
+
+    //overall game timer
+    public float maxGameTime = 15f;
+    public float gameTime = 0f;
 
     //invincible period after collision timer variables
     private float invincibleTimer = 0f;
-    private float invinciblePeriod = 1.5f;
+    private float invinciblePeriod = 0.2f;
 
     private GameObject playerObject;
 
@@ -27,9 +31,28 @@ public class CollisionFX : MonoBehaviour
     {
         //find player gameobject
         playerObject = GameObject.Find("Player");
+        //find game manager
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        //start game timer
+        gameTime = 0f;
+
     }
     private void Update()
     {
+        //start game timer -- 60 seconds to wreak havoc!!
+        gameTime += Time.deltaTime;
+
+        if (gameTime >= maxGameTime)
+        {
+            gameTime = maxGameTime;
+
+            Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(GameOverTimer());
+            Destroy(playerObject);
+        }
+
+
         //if invincible timer is greater than 0, count down
         if (invincibleTimer >= 0)
         {
@@ -87,7 +110,7 @@ public class CollisionFX : MonoBehaviour
             if (invincibleTimer <= 0)
             {
                 invincibleTimer = invinciblePeriod;
-                collisionCount += 1;
+               // collisionCount -= 1;
             }
         }
         //for obstacles, destroy object and create hit effect

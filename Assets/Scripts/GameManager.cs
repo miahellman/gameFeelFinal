@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public CollisionFX collisionFX;
     public bool gamePaused = false;
     public ModifyUI modifyUI;
     public float raceTime;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         //find modifyUI component in canvas
         modifyUI = GameObject.Find("Canvas").GetComponent<ModifyUI>();
+        collisionFX = GameObject.Find("CarCollider").GetComponent<CollisionFX>();
     }
     // Update is called once per frame
     void Update()
@@ -85,8 +87,8 @@ public class GameManager : MonoBehaviour
     //check fastest time for scoreboard (this is broken)
     private void CheckFastestTime()
     {
-       // raceTime = modifyUI.timeElapsed;
-        raceTime = gameTimer;
+       //save high and low scores
+        raceTime = collisionFX.collisionCount;
 
         if (PlayerPrefs.GetFloat("LongestTime",0) == 0)
         {
@@ -95,6 +97,15 @@ public class GameManager : MonoBehaviour
         else if (raceTime >= PlayerPrefs.GetFloat("LongestTime", 0))
         {
             PlayerPrefs.SetFloat("LongestTime", raceTime);
+        }
+
+        if (PlayerPrefs.GetFloat("CurrentTime", 0) == 0)
+        {
+            PlayerPrefs.SetFloat("CurrentTime", raceTime);
+        }
+        else if (raceTime <= PlayerPrefs.GetFloat("LongestTime", 0))
+        {
+            PlayerPrefs.SetFloat("CurrentTime", raceTime);
         }
     }
 }

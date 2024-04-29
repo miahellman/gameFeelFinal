@@ -11,7 +11,7 @@ public class ModifyUI : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI mphText;
     [SerializeField] TextMeshProUGUI collisionText;
-   // [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] TextMeshProUGUI timeText;
    // [SerializeField] TextMeshProUGUI lapsText;
     [SerializeField] TextMeshProUGUI pauseText;
 
@@ -36,6 +36,10 @@ public class ModifyUI : MonoBehaviour
             speed = carController.carSpeed; // If car speed is 0, set speed to 0
         }
 
+
+        //update game timer text to show how much time is left before gameover
+        timeText.text = gameManager.gamePaused ? "" : "TIME LEFT: " + (collisionFX.maxGameTime - collisionFX.gameTime).ToString("F0") + " S";
+
         //update text to show game is paused if paused is true
         pauseText.text = gameManager.gamePaused ? "PAUSED" : "";
 
@@ -44,10 +48,11 @@ public class ModifyUI : MonoBehaviour
 
         timeElapsed += Time.deltaTime;
 
-        int healthNum = collisionFX.maxCollisionCount - collisionFX.collisionCount; 
+       // int healthNum = collisionFX.maxCollisionCount - collisionFX.collisionCount; 
+        int healthNum = collisionFX.collisionCount;
 
         //update text to show number of collisions
-        collisionText.text = gameManager.gamePaused ? "" : "lives: " + healthNum.ToString();
+        collisionText.text = gameManager.gamePaused ? "" : "CHAOS: " + healthNum.ToString() + "*%$!";
 
       //  timeText.text = gameManager.gamePaused ? "" : "TOTAL TIME: " + timeElapsed.ToString("F0") + " S";
 

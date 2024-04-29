@@ -10,8 +10,8 @@ public class Scoreboard : MonoBehaviour
     public GameObject managerObj;
 
   //  [Header("ui text fields")]
-  //  [SerializeField] TMP_Text highScoreText;
-  //  [SerializeField] TMP_Text yourScoreText;
+    [SerializeField] TMP_Text highScoreText;
+    [SerializeField] TMP_Text yourScoreText;
 
 
     void Awake()
@@ -24,8 +24,8 @@ public class Scoreboard : MonoBehaviour
     {
         //update high score and your score text
         //help why is this not working
-       // highScoreText.text = $"longest time: {PlayerPrefs.GetFloat("LongestTime", 0)} s";
-      //  yourScoreText.text = $"your time: {gameManager.raceTime} s";
+        highScoreText.text = $"MAX CHAOS SCORE: {PlayerPrefs.GetFloat("LongestTime", 0)}";
+        yourScoreText.text = $"YOUR CHAOS SCORE: {PlayerPrefs.GetFloat("CurrentTime", 0)}";
 
     }
 }
