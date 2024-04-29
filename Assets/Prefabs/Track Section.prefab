@@ -1886,11 +1886,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c880296d6c5e04790228e2c64d5e84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacles:
-  - {fileID: 6318302414562356505, guid: ac5c82ab87f5a00478e8e620bc959b11, type: 3}
-  - {fileID: 7788133650123596442, guid: b78158e7a6ac9a24490e70cb6be85dad, type: 3}
-  - {fileID: 1594564329062542098, guid: 12f6b412ae12e594780abb6f0146662c, type: 3}
-  - {fileID: 3751679320844498334, guid: bbb33b12d061f6b4080e5f0f27e2ccaa, type: 3}
+  maxX: {fileID: 0}
+  minX: {fileID: 0}
+  cam: {fileID: 0}
+  obstacle1: {fileID: 0}
+  obstacle2: {fileID: 0}
+  obstacle3: {fileID: 0}
+  obstacle4: {fileID: 0}
+  spawn: {fileID: 0}
+  timerMax: 0
+  timerMin: 0
+  timer: 0
 --- !u!1 &7365483064967025488
 GameObject:
   m_ObjectHideFlags: 0

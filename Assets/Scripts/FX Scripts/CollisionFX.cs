@@ -19,7 +19,7 @@ public class CollisionFX : MonoBehaviour
 
     //invincible period after collision timer variables
     private float invincibleTimer = 0f;
-    private float invinciblePeriod = 3f;
+    private float invinciblePeriod = 1.5f;
 
     private GameObject playerObject;
 
