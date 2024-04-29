@@ -344,7 +344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1118301216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &350491289
 MonoBehaviour:
@@ -18403,6 +18403,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec74923488a7794fa43fc46be013068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1118301215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1118301216}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1118301216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118301215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 350491288}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1188671066
 GameObject:
   m_ObjectHideFlags: 0
@@ -20619,8 +20651,7 @@ MonoBehaviour:
   carController: {fileID: 783504218}
   collisionFX: {fileID: 1105736051}
   mphText: {fileID: 1468938860}
-  timeText: {fileID: 1847474986}
-  lapsText: {fileID: 298084607}
+  collisionText: {fileID: 0}
   pauseText: {fileID: 1914706649}
   timeElapsed: 0
 --- !u!1 &2005962621
@@ -20972,7 +21003,6 @@ SceneRoots:
   - {fileID: 163144143}
   - {fileID: 705507995}
   - {fileID: 1668235280}
-  - {fileID: 350491288}
   - {fileID: 1960456099}
   - {fileID: 1465950309}
   - {fileID: 853517263249779972}
@@ -20981,3 +21011,4 @@ SceneRoots:
   - {fileID: 2005962624}
   - {fileID: 1793289331}
   - {fileID: 498193257}
+  - {fileID: 1118301216}
