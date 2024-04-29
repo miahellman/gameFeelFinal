@@ -338,7 +338,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350491287}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33037907, y: 0.5535611, z: -0.25358838, w: 0.7211884}
+  m_LocalRotation: {x: 0.3065814, y: 0.30307272, z: -0.103663154, w: 0.8963307}
   m_LocalPosition: {x: -16.741169, y: 10.408493, z: -32.300613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -447,7 +447,7 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 60.000004
-  orthographic: 1
+  orthographic: 0
   orthographic size: 10
   m_Depth: 0
   m_CullingMask:
@@ -745,20 +745,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
+  m_TrackedObjectOffset: {x: -0.76746655, y: 1.01, z: 8.030674}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.47
   m_DeadZoneWidth: 0.13
   m_DeadZoneHeight: 0.23
   m_SoftZoneWidth: 0.65
   m_SoftZoneHeight: 0.65
-  m_BiasX: 0
-  m_BiasY: -0.014
+  m_BiasX: 0.268
+  m_BiasY: 0.272
   m_CenterOnActivate: 1
 --- !u!114 &623230617
 MonoBehaviour:
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: 336.0357, y: 251.97458, z: -20.513672}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,7 +1348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720579639}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.33037907, y: 0.5535611, z: -0.25358838, w: 0.7211884}
+  m_LocalRotation: {x: 0.3065814, y: 0.30307272, z: -0.103663154, w: 0.8963307}
   m_LocalPosition: {x: -16.741169, y: 10.408493, z: -32.300613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_Duration: 1
-    m_NoiseOffsets: {x: 0, y: 0, z: 0}
+    m_NoiseOffsets: {x: 769.37195, y: -402.47903, z: -865.7965}
 --- !u!850595691 &1841980566
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1765,8 +1765,8 @@ MonoBehaviour:
   gameManager: {fileID: 1470195122}
   carController: {fileID: 783504218}
   collisionFX: {fileID: 1105736051}
-  mphText: {fileID: 1468938860}
-  collisionText: {fileID: 278172156}
+  mphText: {fileID: 278172156}
+  collisionText: {fileID: 1468938860}
   pauseText: {fileID: 1914706649}
   timeElapsed: 0
 --- !u!1 &2118642112
@@ -1920,7 +1920,7 @@ PrefabInstance:
       objectReference: {fileID: 1470195122}
     - target: {fileID: 4317440954374822174, guid: 9606e0032c00b3f468e095aeafd2fade, type: 3}
       propertyPath: maxCollisionCount
-      value: 3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4896389710288600968, guid: 9606e0032c00b3f468e095aeafd2fade, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2045,8 +2045,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track Section
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3665237830011397896, guid: 16bc898b556293646a151e2feb8c5145, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

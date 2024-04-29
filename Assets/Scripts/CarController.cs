@@ -60,12 +60,37 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-        // Get Input
-        moveInput = Input.GetAxisRaw("Vertical");
         turnInput = Input.GetAxisRaw("Horizontal");
 
+        // Get Input
+        moveInput = 0;
+
+        bool usingKeyboard = false;
+
+        //keyboard cntrls
+        if (Input.GetKey(KeyCode.W))
+        {
+            moveInput += 1;
+            usingKeyboard = true;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            moveInput -= 1;
+            usingKeyboard = true;
+        }
+
+        if (!usingKeyboard)
+        {
+            //gamepad cntrls using LT and RT
+            moveInput += Input.GetAxis("RT");
+            moveInput -= Input.GetAxis("LT");
+        }
+
         // Calculate Turning Rotation
-        float newRot = turnInput * turnSpeed * Time.deltaTime * moveInput;
+      //  float newRot = turnInput * turnSpeed * Time.deltaTime * moveInput;
+
+        float newRot = turnInput * turnSpeed * Time.deltaTime;
 
         if (isCarGrounded)
             transform.Rotate(0, newRot, 0, Space.World);
