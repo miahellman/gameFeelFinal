@@ -7,6 +7,7 @@ public class CollisionFX : MonoBehaviour
     public GameManager gameManager;
 
     [SerializeField] GameObject hitEffectPrefab;
+    [SerializeField] GameObject plusPrefab; 
     //[SerializeField] GameObject startLine;
    // [SerializeField] GameObject finishLine;
 
@@ -133,7 +134,7 @@ public class CollisionFX : MonoBehaviour
             //play obstacle audio
             obstacleAudio.Play();
             collisionAudio.Play();
-
+            Instantiate(plusPrefab, collision.GetContact(0).point, Quaternion.identity);
             Debug.Log("Hit Obstacle");
             for (int i = 0; i < 4; i++)
             {
