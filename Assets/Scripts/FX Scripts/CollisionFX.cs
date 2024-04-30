@@ -25,6 +25,12 @@ public class CollisionFX : MonoBehaviour
     private float invincibleTimer = 0f;
     private float invinciblePeriod = 0.2f;
 
+    //init diff audio sources for diff sounds
+    [SerializeField] AudioSource barrierAudio;
+    [SerializeField] AudioSource obstacleAudio;
+    [SerializeField] AudioSource collisionAudio;
+
+
     private GameObject playerObject;
 
     private void Start()
@@ -45,6 +51,8 @@ public class CollisionFX : MonoBehaviour
 
         if (gameTime >= maxGameTime)
         {
+            collisionAudio.Play();
+
             gameTime = maxGameTime;
 
             Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
@@ -86,6 +94,8 @@ public class CollisionFX : MonoBehaviour
         //if car has collided with max number of obstacles, game over
         if (collisionCount >= maxCollisionCount)
         {
+            collisionAudio.Play();
+
             Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
             StartCoroutine(GameOverTimer());
             Destroy(playerObject);
@@ -103,6 +113,10 @@ public class CollisionFX : MonoBehaviour
         //for barriers don't destroy object, just create hit effect and add to collision count -- for obstacles, destroy object
         if (collision.gameObject.CompareTag("Barrier"))
         {
+            //play barrier audio
+            barrierAudio.Play();
+            collisionAudio.Play();  
+
             Debug.Log("Hit Barrier");
             Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
             //add to collision count
@@ -116,9 +130,16 @@ public class CollisionFX : MonoBehaviour
         //for obstacles, destroy object and create hit effect
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            //play obstacle audio
+            obstacleAudio.Play();
+            collisionAudio.Play();
+
             Debug.Log("Hit Obstacle");
-            Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
-            Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
+            for (int i = 0; i < 4; i++)
+            {
+                Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
+            }
+
             //add to collision count
             //start collision timer for invincible period
             if (invincibleTimer <= 0)

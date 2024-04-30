@@ -8,9 +8,10 @@ public class CarController : MonoBehaviour
     public Rigidbody carRB;
     [SerializeField] BoxCollider carBC;
 
-    [Header("visuals")]
+    [Header("visuals + audio")]
     [SerializeField] GameObject hitEffectPrefab;
     [SerializeField] GameObject brakeBox;
+    [SerializeField] AudioSource carAudio;
 
 
     [Header("speed and turning")]
@@ -72,20 +73,21 @@ public class CarController : MonoBehaviour
         {
             moveInput += 1;
             usingKeyboard = true;
-        }
-
+        } 
+        
         if (Input.GetKey(KeyCode.S))
         {
             moveInput -= 1;
             usingKeyboard = true;
         }
-
+         
         if (!usingKeyboard)
         {
             //gamepad cntrls using LT and RT
             moveInput += Input.GetAxis("RT");
             moveInput -= Input.GetAxis("LT");
         }
+
 
         // Calculate Turning Rotation
       //  float newRot = turnInput * turnSpeed * Time.deltaTime * moveInput;
