@@ -134,10 +134,10 @@ public class CollisionFX : MonoBehaviour
             //play obstacle audio
             obstacleAudio.Play();
             collisionAudio.Play();
-            Instantiate(plusPrefab, collision.GetContact(0).point, Quaternion.identity);
             Debug.Log("Hit Obstacle");
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 2; i++)
             {
+                Instantiate(plusPrefab, collision.GetContact(0).point * 1.2f, Quaternion.identity);
                 Instantiate(hitEffectPrefab, collision.GetContact(0).point, Quaternion.identity);
             }
 
